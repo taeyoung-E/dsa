@@ -143,6 +143,69 @@ public class MyLinkedList {
     }
 
     public static void main(String[] args){
+        MyLinkedList list = new MyLinkedList();
 
+        // 1. addHead 테스트
+        System.out.println("=== addHead ===");
+        list.addHead(list.new Node(10));
+        list.addHead(list.new Node(20));
+        list.addHead(list.new Node(30));
+        list.showAllValue(); // 30 20 10
+
+        // 2. addTail 테스트
+        System.out.println("=== addTail ===");
+        list.addTail(list.new Node(99));
+        list.addTail(list.new Node(100));
+        list.showAllValue(); // 30 20 10 99 100
+
+        // 3. addIndex 테스트
+        System.out.println("=== addIndex ===");
+        list.addIndex(0, list.new Node(0));   // 맨 앞
+        list.addIndex(3, list.new Node(55));  // 중간
+        list.addIndex(list.size, list.new Node(200)); // 맨 뒤
+        list.showAllValue(); // 0 30 20 55 10 99 100 200
+
+        // 4. deleteHead 테스트
+        System.out.println("=== deleteHead ===");
+        list.deleteHead();
+        list.showAllValue(); // 30 20 55 10 99 100 200
+
+        // 5. deleteTail 테스트
+        System.out.println("=== deleteTail ===");
+        list.deleteTail();
+        list.showAllValue(); // 30 20 55 10 99 100
+
+        // 6. deleteIndex 테스트
+        System.out.println("=== deleteIndex ===");
+        list.deleteIndex(2); // 중간 삭제
+        list.showAllValue(); // 30 20 10 99 100
+
+        // 7. size 확인
+        System.out.println("=== size check ===");
+        System.out.println("Size: " + list.size); // 5
+
+        // 8. edge case - 원소 1개일때 deleteHead
+        System.out.println("=== single element edge case ===");
+        MyLinkedList single = new MyLinkedList();
+        single.addHead(single.new Node(42));
+        single.showAllValue(); // 42
+        single.deleteHead();
+        single.showAllValue(); // No elements to display
+        System.out.println("Size after delete: " + single.size); // 0
+
+        // 9. edge case - 빈 리스트에서 삭제 시도
+        System.out.println("=== empty list edge case ===");
+        single.deleteHead(); // Invalid operation 출력되어야 함
+        single.deleteTail(); // Invalid operation 출력되어야 함
+
+        // 10. tail 포인터 정확성 확인
+        System.out.println("=== tail pointer check ===");
+        MyLinkedList tailCheck = new MyLinkedList();
+        tailCheck.addTail(tailCheck.new Node(1));
+        tailCheck.addTail(tailCheck.new Node(2));
+        tailCheck.addTail(tailCheck.new Node(3));
+        System.out.println("Tail value: " + tailCheck.tail.value); // 3
+        tailCheck.deleteTail();
+        System.out.println("Tail after delete: " + tailCheck.tail.value); // 2
     }
 }
