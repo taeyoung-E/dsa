@@ -25,54 +25,72 @@ public class MyLinkedList {
         size = 0;
     }
 
-    /*
-    Let's try to fix in from this point, using a dummy node and using dummy node as a reference to traverse
-    as well
-     */
-
-    public void insertHead(Node node){
+    public void addHead(Node node){
         if(size == 0){
             head.next = node;
-            head = node;
-            tail = node;
-            ++size;
+            tail = head.next;
+            size++;
         }
         else{
-            node.next = head;
-            head = node;
+            node.next = head.next;
+            head.next = node;
             ++size;
         }
     }
 
-    public void insertTail(Node node){
+    public void deleteHead(){
+        if(size == 0){
+            System.out.println("Invalid operation, No element to delete(Can't delete head)");
+        }
+        else if(size == 1){
+            head.next = null;
+            tail = head;
+            --size;
+        }
+        else{
+            head.next = head.next.next;
+            --size;
+        }
+    }
+
+    public void addTail(Node node){
         if(size == 0){
             head.next = node;
-            head = node;
+            tail = head.next;
+            ++size;
+        }
+        else{
+            tail.next = node;
             tail = node;
             ++size;
         }
-        else if(head == tail){
-            tail.next = node;
-            tail = tail.next;
-            ++size;
+    }
+
+    public void deleteTail(){
+        if(size == 0){
+            System.out.println("Invalid Operation, there are no elements (Can't delete tail)");
         }
         else{
             Node temp = head;
-            for(int i = 0; i < size; i++){
+            for(int i = 0; i < size-1;i++){
                 temp = temp.next;
             }
-            temp.next = node;
-            tail = node;
-            ++size;
+            temp.next = null;
+            tail = temp;
+            --size;
         }
     }
 
-    public void insertAtIndex(Node node,int index){
-        if(index == 0)
-            insertHead(node);
-        else if(index > 0) {
-            Node temp = head; //Temp to hold the node that's placed at index-1
-            for (int i = 0; i < index - 1; i++) { //Just one less than the index to hold the node
+    public void addIndex(int index, Node node){
+        if(index == 0){
+            addHead(node);
+        }
+        else if(index == size){
+            addTail(node);
+        }
+        else{
+            Node temp = head;
+            for(int i = 0; i < index; i++){
                 temp = temp.next;
             }
             node.next = temp.next;
@@ -81,25 +99,34 @@ public class MyLinkedList {
         }
     }
 
-    public void deleteTail(){
-        if(size == 0)
-            System.out.println("Invalid Operation, there are no elements");
-        else if(size > 0){
-            Node temp = head; //
-            for(int i = 0; i < size - 2; i++){
+    public void deleteIndex(int index){
+        if(index == 0){
+            deleteHead();
+        }
+        else if(index == size-1){
+            deleteTail();
+        }
+        else{
+            Node temp = head;
+            for(int i = 0; i < index; i++){
                 temp = temp.next;
             }
-            tail = temp;
-            temp.next = null;
+            temp.next = temp.next.next;
             --size;
         }
     }
 
-    public void deleteHead(){
-        if(size == 0)
-            System.out.println("Invalid Operation, no elements");
-        else if(size == 1){
-            head = null;
+    public void showAllValue(){
+        if(size == 0){
+            System.out.println("No elements to display");
+        }
+        else{
+            Node temp = head.next;
+            while(temp != null){
+                System.out.print(temp.value + " ");
+                temp = temp.next;
+            }
+            System.out.println("- - - - - - ");
         }
     }
 
