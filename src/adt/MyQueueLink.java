@@ -1,5 +1,11 @@
 package adt;
 
+/*
+Deque works the same just that, u can enqueue or dequeue from both directions so in this doubly
+linked list Queue implementation, just logically think that u just need to add the method to match with
+either the front or the rear
+ */
+
 public class MyQueueLink {
     Node front;
     Node rear;
