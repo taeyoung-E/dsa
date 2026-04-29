@@ -1,9 +1,12 @@
-Try to finish all the implementations for trees this week
+Also shows to-do list of DSA
 
 Repository to practice DSA
 
 Test cases in main methods are generated with AI
 
+
+
+Heap Implementation Tomorrow
 
 버블은 옆에거랑 비교하면서 계속 traverse하면서 swap
 
@@ -22,9 +25,29 @@ Pivot값을 고른다음 (보통 그냥 size/2 중간 index) 그 pivot값을 비
 Split된 배열들을 그냥 merge할뿐
 
 Merge sort(Compare as you merge)
+
 Quick(Just merge it because it's sorted)
 
 Heap Sort
+Similar to taking out the root in the priority queue
+
+HashMap Chaining Method/Open Addressing
+Chaining Method refers to saving the collided value in the index through Linked List(O(n) though in modern java
+It's saved as Red Black tree after 8 items are in a same bucket)
+
+On collision, both HashMap and HashSet saves multiple elements in the same bucket, but when attempting to override
+with same key and different values, only HashMap overwrites to the new entry where HashSet simply ignores it
+
+Open Addressing Refers to finding another empty location on collision and inserting it there(Linear Probing)
+
+Null is a condition to end the search which is why, on deletion using open addressing, we need to mark the deleted
+index so the search loop doeesn't get terminated prematurly after seeing a null value in the arary
+
+Graph
+Graphs are made of vertices,edges and nodes. 
+The edges may have direction or weights
+
+
 
 
 
