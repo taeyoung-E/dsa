@@ -47,8 +47,16 @@ Graph
 Graphs are made of vertices(nodes) and edges. 
 The edges may have direction or weights
 
-Algorithms to look at, Djikstra, Bellman Ford, Minimum Spanning tree Kruskal and prim
+Algorithms to look at, Djikstra,Floyd warshall, Bellman Ford, Minimum Spanning tree Kruskal and prim
 
+Djikstra: So basically, we're saying shortest path to any node from the source, not one specific path
+(Pruning refers to brute forcing, eliminating absolute garbage choice) used for Single source
+
+Floyd Warshall: Used with Adjacency Matrix 
+
+MST: Used for lowering the cost of connecting all the edges(like connecting roads etc)
+
+Bellman Ford,negative edges, Negative Cycle (finance or economics when performing arbitrage in markets) used for Single source
 
 
 
