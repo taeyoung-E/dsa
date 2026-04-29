@@ -47,6 +47,8 @@ Graph
 Graphs are made of vertices(nodes) and edges. 
 The edges may have direction or weights
 
+Algorithms to look at, Djikstra, Bellman Ford, Minimum Spanning tree Kruskal and prim
+
 
 
 
