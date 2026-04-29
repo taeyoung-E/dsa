@@ -44,7 +44,7 @@ Null is a condition to end the search which is why, on deletion using open addre
 index so the search loop doeesn't get terminated prematurly after seeing a null value in the arary
 
 Graph
-Graphs are made of vertices,edges and nodes. 
+Graphs are made of vertices(nodes) and edges. 
 The edges may have direction or weights
 
 
