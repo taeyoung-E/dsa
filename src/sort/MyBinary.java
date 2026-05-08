@@ -80,5 +80,13 @@ public class MyBinary {
             recurBinarySearch(arr,low,high,target);
         }
     }
+    /*
+    How many dups and first occurence or last occurence implementations
+    using lower/upper bounds
+     */
+
+    public static void duplicateBinarySearch(int[] arr,int target){
+
+    }
 
 }
