@@ -10,17 +10,25 @@ Though it seems like Recursive verison is faster, turns out it's because of JIT 
  */
 
 public class MyBinary {
-    static void main() {
-        int[] testArr = new int[1_000_000];
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 3, 3, 5, 6, 7};
 
-        for(int i = 0; i < 1_000_000; i++){
-            testArr[i] = i;
-        }
-        int[] dupArr = {1,2,3,3,4,5,6,8,8,9};
+        System.out.println("Array: [1, 2, 3, 3, 3, 5, 6, 7]");
+        System.out.println("--- Lower Bound (target = 3) ---");
+        lowerBound(arr, 3); // expected: index 2
 
-        iterBinarySearch(testArr,3000000);
-        System.out.println();
-        reverseBinarySearch(testArr,3000000);
+        System.out.println("--- Upper Bound (target = 3) ---");
+        upperBound(arr, 3); // expected: index 4
+
+        System.out.println("--- Lower Bound (target = 1) ---");
+        lowerBound(arr, 1); // expected: index 0
+
+        System.out.println("--- Upper Bound (target = 7) ---");
+        upperBound(arr, 7); // expected: index 7
+
+        System.out.println("--- Not found (target = 4) ---");
+        lowerBound(arr, 4); // expected: does not exist
+        upperBound(arr, 4); // expected: does not exist
     }
 
 
@@ -85,8 +93,60 @@ public class MyBinary {
     using lower/upper bounds
      */
 
-    public static void duplicateBinarySearch(int[] arr,int target){
+    public static void lowerBound(int[] arr,int target){
+        int low = 0;
+        int high = arr.length - 1;
+        int mid = (high + low) / 2;
+        int result = -1;
 
+        while(low <= high){
+            if(arr[mid] == target){
+                result = mid;
+                high = mid - 1;
+                mid = (low + high) / 2;
+            }
+            else if(arr[mid] < target){
+                low = mid + 1;
+                mid = (high + low) / 2;
+            }
+            else{
+                high = mid - 1;
+                mid = (high + low) / 2;
+            }
+        }
+        if(result == -1){
+            System.out.println("The value does not exist");
+            return;
+        }
+        System.out.println("The lowest index is: " + result);
+    }
+
+    public static void upperBound(int[] arr,int target){
+        int low = 0;
+        int high = arr.length - 1;
+        int mid = (high + low) / 2;
+        int result = -1;
+
+        while(low <= high){
+            if(arr[mid] == target){
+                result = mid;
+                low = mid + 1;
+                mid = (low + high) / 2;
+            }
+            else if(arr[mid] < target){
+                low = mid + 1;
+                mid = (high + low) / 2;
+            }
+            else{
+                high = mid - 1;
+                mid = (high + low) / 2;
+            }
+        }
+        if(result == -1){
+            System.out.println("The value does not exist");
+            return;
+        }
+        System.out.println("The highest index is: " + result);
     }
 
 }
