@@ -4,6 +4,8 @@ package sort;
 n + n-1 + n-2 + n-2 . . . + 1
 Number of comparison is sum of natural number formula therefore n(n-1) / 2
 
+!!Increasing the sorted portion from the end of the container till the container gets sorted!!
+
  */
 
 import java.util.Arrays;

@@ -8,6 +8,8 @@ import java.util.Arrays;
  * Outer stops at 2nd last index,and inner goes < array.length to point to the very last value in the array
  *
  * Also O(n^2) since it works like bubble sort except for the swap count (1 per outer in this case)
+ *
+ * Sorted portion is at the front (which is managed by the outer loop count)
  */
 
 public class MySelection {
