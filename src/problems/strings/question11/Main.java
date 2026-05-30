@@ -1,5 +1,7 @@
 package problems.strings.question11;
 
+//Tip is to use the sentinel character at the end to flush the result clearly
+
 import java.util.Scanner;
 
 public class Main {
