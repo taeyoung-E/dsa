@@ -18,7 +18,7 @@ public class Main {
         for(int i = 2; i * i <= input; i++){
             if(isNotPrime[i])
                 continue;
-            for(int j = i + i; j <= input; j += i){
+            for(int j = i * i; j <= input; j += i){
                 isNotPrime[j] = true;
             }
         }
