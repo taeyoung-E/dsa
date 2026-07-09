@@ -8,6 +8,9 @@ import java.util.Scanner;
  * If smaller, move right pointer
  * If bigger, move left pointer
  * If same, record and move both
+ *
+ * Also consider cases where you may need to decrease the left count to check
+ * in that case, use inner while loop to check for it
  */
 
 public class Main {
